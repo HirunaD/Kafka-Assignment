@@ -12,17 +12,6 @@ This system fulfills all assignment requirements by building a Kafka-based syste
 - **Runs entirely on Docker** with Schema Registry
 - **Demonstrates live** with real-time aggregation and Avro schema management
 
-## 🏗️ Project Structure
-
-kafka-avro-order-system/
-├── docker-compose.yml          # Kafka + Schema Registry
-├── order.avsc                  # Avro schema definition
-├── producer.py                 # Avro Order Producer
-├── consumer.py                 # Avro Consumer with retry logic
-├── dlq_consumer.py             # DLQ processor
-├── requirements.txt            # Python dependencies
-└── README.md                  # This file
-
 ## 🚀 Quick Start
 
 ### Prerequisites
@@ -37,7 +26,6 @@ kafka-avro-order-system/
 mkdir kafka-order-processing-system
 cd kafka-order-processing-system
 ```
-# Copy all provided files to this directory
 
 ### 2. Initial Setup
 
@@ -54,19 +42,19 @@ docker-compose up -d
 
 ### 4. Run the System
 
-# Terminal 1 - Start Producer:
+### Terminal 1 - Start Producer:
 
 ```bash
 python producer.py
 ```
 
-# Terminal 2 - Start Consumer:
+### Terminal 2 - Start Consumer:
 
 ```bash
 python consumer.py
 ```
 
-# Terminal 3 - Start DLQ Consumer
+### Terminal 3 - Start DLQ Consumer
 
 ```bash
 python dlq_consumer.py
@@ -74,14 +62,14 @@ python dlq_consumer.py
 
 ### 📊 Expected Output
 
-# Producer Output:
+### Producer Output:
 
 ```bash
 📦 Avro Order: {'orderId': 'AVRO-000029', 'product': 'Tablet', 'price': 211.86}
 ✅ Delivered to orders [0]
 ```
 
-# Consumer Output:
+### Consumer Output:
 
 ```bash
 📨 Avro Order: AVRO-000146 - Keyboard - $515.53
@@ -89,7 +77,7 @@ python dlq_consumer.py
 ✅ Success: AVRO-000146
 ```
 
-# DLQ Consumer Output:
+### DLQ Consumer Output:
 
 ```bash
 ❌ PERMANENTLY FAILED ORDER:
